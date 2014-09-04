@@ -14,14 +14,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.AreaService;
+import model.CircleAreaService;
 
 /**
  *
  * @author peter
  */
-@WebServlet(name = "MainController", urlPatterns = {"/MainController"})
-public class MainController extends HttpServlet {
+@WebServlet(name = "CircleController", urlPatterns = {"/CircleController"})
+public class CircleController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,15 +36,14 @@ public class MainController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        double length = Double.parseDouble(request.getParameter("length"));
-        double width = Double.parseDouble(request.getParameter("width"));
+        double radius = Double.parseDouble(request.getParameter("radius"));
         
-        AreaService as = new AreaService();
-        double area = as.getArea(length, width);
+        CircleAreaService cas = new CircleAreaService();
+        double area = cas.getArea(radius);
         
-        request.setAttribute("area", "The area of the rectangle you entered is: " + area);
+        request.setAttribute("area", "The area of the circle you entered is: " + area);
         
-        RequestDispatcher view = request.getRequestDispatcher("/index.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("index.jsp");
         view.forward(request, response);
     }
 

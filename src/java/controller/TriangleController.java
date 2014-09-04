@@ -14,14 +14,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.AreaService;
+import model.TriangleService;
 
 /**
  *
  * @author peter
  */
-@WebServlet(name = "MainController", urlPatterns = {"/MainController"})
-public class MainController extends HttpServlet {
+@WebServlet(name = "TriangleController", urlPatterns = {"/TriangleController"})
+public class TriangleController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,13 +36,13 @@ public class MainController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        double length = Double.parseDouble(request.getParameter("length"));
-        double width = Double.parseDouble(request.getParameter("width"));
+        double base = Double.parseDouble(request.getParameter("base"));
+        double height = Double.parseDouble(request.getParameter("height"));
         
-        AreaService as = new AreaService();
-        double area = as.getArea(length, width);
+        TriangleService ts = new TriangleService();
+        double area = ts.getArea(base, height);
         
-        request.setAttribute("area", "The area of the rectangle you entered is: " + area);
+        request.setAttribute("area", "The area of the triangle you entered is: " + area);
         
         RequestDispatcher view = request.getRequestDispatcher("/index.jsp");
         view.forward(request, response);

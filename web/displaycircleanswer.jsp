@@ -1,6 +1,6 @@
 <%-- 
-    Document   : displayanswer
-    Created on : Sep 3, 2014, 7:40:52 PM
+    Document   : displaycircleanswer
+    Created on : Sep 3, 2014, 9:03:04 PM
     Author     : peter
 --%>
 
@@ -20,7 +20,7 @@
               if(area == null) {
                   out.println("There was an error...");
               } else {
-                  out.println("The area of that square is: " + area);
+                  out.println("The area of that circle is: " + area);
               }
             %>
         </p>
